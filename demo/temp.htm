@@ -108,7 +108,7 @@
             $('body').css('background-color','#FFF');
             $('.logo').css('color','#000');
             $('.post.normal-post').css('color','#000');
-            $.cookie('time','day',{expires:7,path:'/'});
+            $.cookie('time','night',{expires:7,path:'/'});
           }
         else if(time=='night'){
             $('body').css('background-color','#000');
@@ -117,9 +117,9 @@
             $.cookie('time','day',{expires:7,path:'/'});
           }
         else{
-            $('body').css('background-color','#FFF');
-            $('.logo').css('color','#000');
-            $('.post.normal-post').css('color','#000');
+            $('body').css('background-color','#000');
+            $('.logo').css('color','#EEE');
+            $('.post.normal-post').css('color','#EEE');
             $.cookie('time','day',{expires:7,path:'/'});
           }
         }));
