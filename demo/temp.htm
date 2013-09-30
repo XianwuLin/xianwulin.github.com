@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!-- saved from url=(0089)http://blog.linxianwu.cn/post/experience/ubuntu-serveran-zhuang-rhe-rstudio#content-start -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubuntu Server安装R和Rstudio</title>
+    <link rel="shortcut icon" href="http://blog.linxianwu.cn/template/image/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./temp/base.css" type="text/css">
+    <script src="./temp/jquery-1.10.1.min.js"></script>
+    <script src="./temp/jquery.cookie.js"></script>
+    
+<link rel="stylesheet" href="./temp/post.css" type="text/css">
+
+  <body style="">
+    <div class="header-wrap">
+      <div class="header center-container">
+        <a href="http://blog.linxianwu.cn/" class="logo" title="Xianwu Lin">Xianwu Lin</a>
+        
+        <ul class="nav">
+          <li>
+          <a href="http://blog.linxianwu.cn/">home</a>
+          </li>
+          <li>
+          <a href="http://blog.linxianwu.cn/archive">archive</a>
+          </li>
+          <li>
+          <a href="http://blog.linxianwu.cn/pages/about">about</a>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+
+    <div class="content-wrap" id="content-start">
+    <div class="time">
+        <img src="temp/sun.png">
+    </div>
+      <div class="content center-container">
+        
+
+<div class="post normal-post">
+  <h2 class="title">
+    
+    Ubuntu Server安装R和Rstudio
+    
+    <a title="permanent link" class="perman-link" href="./Ubuntu Server安装R和Rstudio_files/Ubuntu Server安装R和Rstudio.htm">∞</a></h2>
+  <span class="date">September 24, 2013</span>
+  
+  <p class="tags">Tags:
+  
+  <a href="http://blog.linxianwu.cn/tags/Rstudio">Rstudio</a>
+  
+  <a href="http://blog.linxianwu.cn/tags/Ubuntu">Ubuntu</a>
+  
+  
+  </p>
+
+  <div class="post-body">
+    <p>R是一个在科研领域很常用的工具，经常用R的年轻人或者经常上<a href="http://cos.name/cn/">统计之都</a>的肯定知道Rstudio的存在。然而对于R和Rstudio来讲，还是有很多问题存在的，今天我就结合我上一次在Ubuntu server上面安装R和Rstudio的经历来讲讲有些什么问题(很难Google到！)。</p>
+<p>首先是要安装R：</p>
+<div class="codehilite"><pre><span class="cp">#添加源(可以选择离自己最近的可以用的源)</span>
+<span class="n">sudo</span> <span class="n">vim</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">apt</span><span class="o">/</span><span class="n">sources</span><span class="p">.</span><span class="n">list</span>
+<span class="n">deb</span> <span class="n">http</span><span class="o">:</span><span class="c1">//mirrors.ustc.edu.cn/CRAN/bin/linux/ubuntu precise/</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+<span class="cp">#安装R-base</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">r</span><span class="o">-</span><span class="n">base</span>
+</pre></div>
+
+
+<p>其次安装Rstudio(版本看官网)</p>
+<div class="codehilite"><pre><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">gdebi</span><span class="o">-</span><span class="n">core</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libapparmor1</span>  <span class="err">#</span> <span class="n">Required</span> <span class="n">only</span> <span class="k">for</span> <span class="n">Ubuntu</span><span class="p">,</span> <span class="n">not</span> <span class="n">Debian</span>
+<span class="n">wget</span> <span class="n">http</span><span class="o">:</span><span class="c1">//download2.rstudio.org/rstudio-server-0.97.551-amd64.deb</span>
+<span class="n">sudo</span> <span class="n">gdebi</span> <span class="n">rstudio</span><span class="o">-</span><span class="n">server</span><span class="o">-</span><span class="mf">0.97.551</span><span class="o">-</span><span class="n">amd64</span><span class="p">.</span><span class="n">deb</span>
+</pre></div>
+
+
+<p>这个基本上就算是弄完了，具体什么设置之类的请查看Rstudio的帮助<a href="http://www.rstudio.com/ide/docs/server/configuration">链接</a></p>
+<h2 id="_1">接下来就是我的重点了</h2>
+<p><strong>首先</strong>，R在不同的平台下面很多东西不一样，就比如说上传的文件(批量上传推荐Bitvise)当读取的时候很可能出问题，所以在上传的时候一定要把文件改为utf-8格式，并且将文件换行符改为UNIX格式的，也就是结尾由windows下的/r/n改为/n。(使用VIM操作非常简单！)</p>
+<p><strong>其次</strong>，对于使用中文的孩子们，学习R的时候开始一定会有中文问题，Rstudio在绘图的时候会使用服务器上面的中文字体，然而Ubuntu Server上面一般来讲是没有默认安装中文字体的，然后绘图文字部分就会出现各种方格。解决方法如下：</p>
+<div class="codehilite"><pre><span class="cp">#安装简体中文字体</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">language</span><span class="o">-</span><span class="n">pack</span><span class="o">-</span><span class="n">zh</span><span class="o">-</span><span class="n">hans</span>
+<span class="cp">#安装渲染包</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">xfonts</span><span class="o">-</span><span class="n">wqy</span>
+<span class="cp">#似乎需要重启</span>
+</pre></div>
+
+
+<p>接下来基本上就算是结束了。</p>
+<p>最后强调一点，上传的文件包括读取的文件，如果下载到windows下面是不能用的，因为R的各个平台读取文件的方式不同！</p>
+  </div>
+
+  <p class="eof">· EOF ·</p>
+</div>
+
+    <div class="footer-wrap">
+  <div class="main-center footer">
+      <p>Powered by <a href="http://farbox.com/">farbox.com</a></p>
+  </div>
+</div>
+  
+<script>
+    $(document).ready(
+    $('.time').on('click',function(){
+        var time = $.cookie('time');
+        if(time=='day'){
+            $('body').css('background-color','#FFF');
+            $('.logo').css('color','#000');
+            $('.post.normal-post').css('color','#000');
+            $.cookie('time','day',{expires:7,path:'/'});
+          }
+        else if(time=='night'){
+            $('body').css('background-color','#000');
+            $('.logo').css('color','#EEE');
+            $('.post.normal-post').css('color','#EEE');
+            $.cookie('time','day',{expires:7,path:'/'});
+          }
+        else{
+            $('body').css('background-color','#FFF');
+            $('.logo').css('color','#000');
+            $('.post.normal-post').css('color','#000');
+            $.cookie('time','day',{expires:7,path:'/'});
+          }
+        }));
+</script>
+</body></html>
