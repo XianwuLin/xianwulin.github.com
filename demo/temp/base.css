@@ -1,0 +1,254 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+::selection {
+    background: black;
+    color: white;
+}
+
+::-moz-selection {
+    background: black;
+    color: white;
+}
+
+body {
+    font: 16px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, 'Hiragino Sans GB', sans-serif;
+    color: #000;
+    background-color: #FFF;
+}
+
+a {
+    color: #006699;
+    text-decoration: none;
+    transition: color linear .2s;
+}
+
+a:hover {
+    color: #333333;
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+del {
+    color: #999;
+}
+
+.center-container {
+    width: 660px;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+/*------------------*/
+/*----- header -----*/
+/*------------------*/
+.header-wrap {
+    width: 100%;
+    /*border-bottom: solid 1px #D6D6D6;*/
+}
+
+.header {
+    padding: 40px 0;
+    overflow: hidden;
+}
+
+.header .logo {
+    font-size: 28px;
+    color: #111111;
+}
+
+/*----- Top nav -----*/
+.nav {
+    list-style: none;
+    float: right;
+    overflow: hidden;
+}
+
+.nav li {
+    float: left;
+    margin-left: 20px;
+    font-size: 1.1em;
+}
+
+.nav li a {
+    color: #dd746a;
+    position: relative;
+    transition: all linear .3s;
+}
+
+.nav li a:hover {
+    color: #333333;
+}
+/*-------------------*/
+/*----- Content -----*/
+/*-------------------*/
+.content-wrap {
+    margin-top: 20px;
+}
+
+#content-start {
+    margin-top: 0;
+    padding-top: 50px;
+}
+
+.content pre {
+    border: none;
+    background: none;
+    border-top: 1px solid #E0E0E0;
+    border-bottom: 1px solid #E0E0E0;
+    margin: 1.2em -2px;
+    padding: 15px 20px;
+    font-size: 13px;
+    font-family: Menlo, monospace;
+    line-height: 2.2;
+    display: block;
+    overflow: auto;
+    max-width: 800px;
+}
+/*------------------*/
+/*----- footer -----*/
+/*------------------*/
+.footer-wrap {
+    padding: 50px 0 50px;
+}
+
+.footer p {
+    text-align: center;
+    font-size: 0.75em;
+}
+
+/*----- responsive for small screen ----- */
+@media screen and (max-width: 480px) {
+    .header .logo {
+        /*margin-top: 100px; */
+    }
+
+    .nav li {
+        float: none;
+    }
+
+    .post {
+        line-height: 1.6;
+        margin-bottom: 55px;
+    }
+
+    .post.normal-post .title {
+        font-size: 1.5em;
+        line-height: 1.2;
+    }
+
+    .post.normal-post .title .perman-link {
+        font-size: 0.8em;
+        color: #E60900;
+        position: absolute;
+        left: 0;
+        top: -1em;
+    }
+}
+/*----- Post -----*/
+.post {
+    line-height: 1.6;
+    margin-bottom: 10px;
+    word-break: break-word;
+}
+
+.post .title {
+    font-size: 1.15em;
+    color: black;
+    font-weight: normal;
+}
+
+.post img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px auto;
+    display: block;
+}
+
+.post .date {
+    float: right;
+    text-align: right;
+    font-size: 0.8em;
+    color: #999;
+}
+
+.p_part {
+    display: none;
+}
+
+.post-body ul {
+    margin: 1em 0;
+    padding-left: 2em;
+    list-style: circle;
+}
+
+.post-body ol {
+    margin: 1em 0;
+    padding-left: 2em;
+}
+
+.post-body ul li, .post-body ol li {
+    margin: 1em 0;
+    position: relative;
+    font-size: 0.9em;
+}
+
+.post-body ul li:after {
+    position: absolute;
+    color: red;
+    content: '·';
+    left: -10px;
+    top: 0;
+}
+
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+
+.post code {
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 3px 5px;
+    margin-top: -3px;
+    color: #666;
+    border: solid 1px #ccc;
+}
+
+.post-body a {
+    color: #9c2525;
+    border-bottom: solid 1px #444;
+    -webkit-transition: all linear 0.4s;
+    -moz-transition: all linear 0.4s;
+    transition: all linear 0.4s;
+}
+
+.post-body a:hover {
+    color: #C9261E;
+    border-bottom-color: #E60900;
+}
+/*----- paginator -----*/
+.round {
+    color: #333;
+    -webkit-transition: all linear 0.4s;
+    -moz-transition: all linear 0.4s;
+    transition: all linear 0.4s;
+}
+
+.round:hover {
+    color: #C9261E;
+}
+
+.round.pre {
+    float: left;
+}
+
+.round.new {
+    float: right;
+}
+
