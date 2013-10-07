@@ -1,0 +1,615 @@
+
+<!-- saved from url=(0056)http://strut.io/dist/preview_export/impress.html#/step-1 -->
+<html style="height: 100%;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>SNP芯片的原理及应用</title>
+
+<meta name="description" content="TODO">
+<meta name="author" content="TODO">
+
+<style>
+.componentContainer {
+    position: absolute;
+    line-height: normal;
+    /*-webkit-transform-origin: 135% 135%;
+    -moz-transform-origin: 135% 135%;
+    transform-origin: 135% 135%;*/
+}
+
+.transformContainer {
+    -webkit-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+
+.bg {
+    width: 100%;
+    height: 100%;
+}
+</style>
+
+<link rel="stylesheet" href="http://strut.io/dist/preview_export/css/themes/default-reset.css">
+<link href="./SNP_microarray_files/main.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="http://strut.io/dist/preview_export/reveal/css/theme/default.css" id="theme">
+<link href="./SNP_microarray_files/web-fonts.css" rel="stylesheet" type="text/css">
+<link href="./SNP_microarray_files/backgroundClasses.css" rel="stylesheet" type="text/css">
+<link href="./SNP_microarray_files/surfaceClasses.css" rel="stylesheet" type="text/css">
+
+<link rel="shortcut icon" href="http://strut.io/dist/preview_export/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="http://strut.io/dist/preview_export/apple-touch-icon.png" type="image/png">
+
+<style>
+.reveal.themedArea {
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+}
+</style>
+
+<script async="" src="./SNP_microarray_files/analytics.js"></script><script type="text/javascript" src="./SNP_microarray_files/dataset-shim.js"></script>
+<script type="text/javascript" src="./SNP_microarray_files/impress.js"></script><style type="text/css"></style>
+
+<script src="./SNP_microarray_files/onready.js"></script>
+<script src="./SNP_microarray_files/loadPresentation.js"></script>
+<script>
+ready(function() {
+    if (document.getElementById('launched-placeholder'))
+        loadPresentation();
+
+    if (!window.presStarted) {
+        startPres(document, window);
+        impress().init();   
+    }
+
+    if ("ontouchstart" in document.documentElement) { 
+        document.querySelector(".hint").innerHTML = 
+            "<p>Tap on the left or right to navigate</p>";
+    }
+});
+</script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-42322531-1', 'strut.io');
+    ga('send', 'pageview');
+    </script>
+</head>
+<body class="impress-supported impress-enabled" style="height: 100%; overflow: hidden;">
+<style type="text/css">
+/*.example {
+	border: 4px groove orange;
+}*/
+.slideContainer .normalline{
+	line-height: 5em;
+}
+</style>
+<style>
+
+</style>
+<style>
+
+
+
+	
+		
+		
+	
+
+	
+		
+		
+	
+
+	
+		
+		
+	
+
+	
+		
+		
+	
+
+	
+		
+		
+	
+
+	
+		
+		
+	
+
+	
+		
+		
+	
+
+	
+		
+		
+	
+
+	
+		
+		
+	
+
+	
+		
+		
+	
+
+	
+		
+		
+	
+
+</style>
+<!-- This is a work around / hack to get the user's browser to download the fonts 
+ if they decide to save the presentation. -->
+<div style="visibility: hidden; width: 0px; height: 0px">
+<img src="./SNP_microarray_files/Lato-Bold.woff">
+<img src="./SNP_microarray_files/HammersmithOne.woff">
+<img src="./SNP_microarray_files/Droid-Sans-Mono.woff">
+<img src="./SNP_microarray_files/Gorditas-Regular.woff">
+<img src="./SNP_microarray_files/FredokaOne-Regular.woff">
+<img src="./SNP_microarray_files/Ubuntu.woff">
+<img src="./SNP_microarray_files/Ubuntu-Bold.woff">
+<img src="./SNP_microarray_files/PressStart2P-Regular.woff">
+<img src="./SNP_microarray_files/Lato-BoldItalic.woff">
+<img src="./SNP_microarray_files/AbrilFatface-Regular.woff">
+<img src="./SNP_microarray_files/Lato-Regular.woff">
+</div>
+
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div class="bg bg-surf-grad-darkgreen strut-surface">
+<div class="bg innerBg strut-slide-0 bg-surf-grad-darkgreen">
+<div id="impress" style="position: absolute; -webkit-transform-origin: 0% 0%; transition: all 1000ms ease-in-out 500ms; -webkit-transition: all 1000ms ease-in-out 500ms; -webkit-transform-style: preserve-3d; top: 50%; left: 50%; -webkit-transform: perspective(2388.8024883359253px) scale(0.4186197916666667);"><div style="position: absolute; -webkit-transform-origin: 0% 0%; transition: all 1000ms ease-in-out 0ms; -webkit-transition: all 1000ms ease-in-out 0ms; -webkit-transform-style: preserve-3d; -webkit-transform: rotateZ(0deg) rotateY(0deg) rotateX(0deg) translate3d(-7249.92px, -1704.96px, 0px);">
+	
+		
+			<div class="step active present" data-state="strut-slide-0 bg-surf-grad-darkgreen " data-x="7249.92" data-y="1704.96" data-scale="2" id="step-1" style="position: absolute; -webkit-transform: translate(-50%, -50%) translate3d(7249.92px, 1704.96px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(2); -webkit-transform-style: preserve-3d;">
+			<div class="bg-solid-yellow slideContainer strut-slide-0" style="width: 1024px; height: 768px;">
+			<div class="themedArea">
+			
+			</div>
+			
+			<div class="componentContainer " style="top: 130px; left: 196px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 72px;" class="antialias">
+SNP芯片的原理及应用<br>
+</div>
+</div>
+</div>
+			
+			<div class="componentContainer " style="top: 446px; left: 607px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 48px;" class="antialias">
+动科1104班<br>
+</div>
+</div>
+</div>
+			
+			<div class="componentContainer " style="top: 515px; left: 617px; -webkit-transform:  skewX(-0.04rad) ; -moz-transform:  skewX(-0.04rad) ; transform:  skewX(-0.04rad) ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 36px;" class="antialias">
+陈春豪 &nbsp; &nbsp;蔺宪武<br>
+</div>
+</div>
+</div>
+			
+			<div class="componentContainer " style="top: 262px; left: 181px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: 272px; height: 431.12px;">
+<div class="transformContainer" style="-webkit-transform: scale(1.36, 1.36);
+-moz-transform: scale(1.36, 1.36);
+transform: scale(1.36, 1.36)">
+<img src="./SNP_microarray_files/4SL5B2Q.jpg">
+</div>
+</div>
+			
+			</div>
+		
+		</div>
+	
+		
+			<div class="step past" data-state="strut-slide-1 bg-surf-grad-darkgreen " data-x="10048.853333333333" data-y="1689.6" data-scale="2" id="step-2" style="position: absolute; -webkit-transform: translate(-50%, -50%) translate3d(10048.853333333333px, 1689.6px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(2); -webkit-transform-style: preserve-3d;">
+			<div class="bg-solid-yellow slideContainer strut-slide-1" style="width: 1024px; height: 768px;">
+			<div class="themedArea">
+			
+			</div>
+			
+			<div class="componentContainer " style="top: 83px; left: 346px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 64px;" class="antialias">
+SNP的概念<br>
+</div>
+</div>
+</div>
+			
+			<div class="componentContainer " style="top: 200px; left: 63px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 36px;" class="antialias">
+<ul><li><span style="line-height: normal;">单核苷酸多态性(single nucleotide polymorphism,</span><span style="line-height: 1.5em;">SNP)</span></li></ul><span style="line-height: 1.5em;">&nbsp; &nbsp; 是指DNA序列上发生的<font color="#d43b3b">单个核苷酸</font>碱基的变异。<br></span><br><ul><li><span style="line-height: normal;">SNP是人类及其他物种基因组DNA序列中最常见的</span></li></ul><span style="line-height: 54px;">&nbsp; &nbsp; 变异形式。</span><br><br><ul><li><span style="line-height: normal;">单核苷酸多态性是基因组上高密度的遗传标志，</span></li></ul><span style="line-height: normal;">&nbsp; &nbsp; 在人</span>类基因组中已发现的SNP数量超过<font color="#d43b3b">3000万</font>。<br>
+</div>
+</div>
+</div>
+			
+			</div>
+		
+		</div>
+	
+		
+			<div class="step future" data-state="strut-slide-2 bg-surf-grad-darkgreen " data-x="12752.213333333333" data-y="1658.88" data-scale="2" id="step-3" style="position: absolute; -webkit-transform: translate(-50%, -50%) translate3d(12752.213333333333px, 1658.88px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(2); -webkit-transform-style: preserve-3d;">
+			<div class="bg-solid-yellow slideContainer strut-slide-2" style="width: 1024px; height: 768px;">
+			<div class="themedArea">
+			
+			</div>
+			
+			<div class="componentContainer " style="top: 89px; left: 260px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 64px;" class="antialias">
+<font face="Lato">传统SNP检测方法</font><br>
+</div>
+</div>
+</div>
+			
+			<div class="componentContainer " style="top: 212px; left: 134px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 44px;" class="antialias">
+1.&nbsp;寡核苷酸连接分析(OLA)<br><br>2. 限制性片段长度多态性聚合酶<br>&nbsp; &nbsp; &nbsp;链反应(RFLP)<br><br>3. 等位基因特异性PCR(AS-PCR)<br><br>4. 变性梯度凝胶电泳分析(DGGE)<br>
+</div>
+</div>
+</div>
+			
+			<div class="componentContainer " style="top: 670px; left: 840px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 36px;" class="antialias">
+<font color="#579aec">凝胶时代</font><br>
+</div>
+</div>
+</div>
+			
+			</div>
+		
+		</div>
+	
+		
+			<div class="step future" data-state="strut-slide-3 bg-surf-grad-darkgreen " data-x="14008.32" data-y="3993.6" data-scale="2" id="step-4" style="position: absolute; -webkit-transform: translate(-50%, -50%) translate3d(14008.32px, 3993.6px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(2); -webkit-transform-style: preserve-3d;">
+			<div class="bg-solid-yellow slideContainer strut-slide-3" style="width: 1024px; height: 768px;">
+			<div class="themedArea">
+			
+			</div>
+			
+			<div class="componentContainer " style="top: 104px; left: 225px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 64px;" class="antialias">
+基因芯片(Genechips)<br>
+</div>
+</div>
+</div>
+			
+			<div class="componentContainer normalline" style="top: 272px; left: 87px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 36px;" class="antialias">
+<div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 基因芯片技术是将大量特定的寡核苷酸(cDNA)片段<br></div><div>或基因片段作为探针，有规律地排列固定于支持物上(无</div><div>机或有机支持物)，然后与待测的标记样品分子按碱基配</div><div>对原理进行杂交，通过检测探针分子的杂交信号强度获</div><div>取样品分子的表达数量和序列信息。</div>
+</div>
+</div>
+</div>
+			
+			<div class="componentContainer " style="top: 670px; left: 805px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 36px;" class="antialias">
+<font color="#579aec">高通量时代</font><br>
+</div>
+</div>
+</div>
+			
+			</div>
+		
+		</div>
+	
+		
+			<div class="step future" data-state="strut-slide-4 bg-surf-grad-darkgreen " data-x="11332.266666666666" data-y="4039.68" data-scale="2" id="step-5" style="position: absolute; -webkit-transform: translate(-50%, -50%) translate3d(11332.266666666666px, 4039.68px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(2); -webkit-transform-style: preserve-3d;">
+			<div class="bg-solid-yellow slideContainer strut-slide-4" style="width: 1024px; height: 768px;">
+			<div class="themedArea">
+			
+			</div>
+			
+			<div class="componentContainer " style="top: 78px; left: 299px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 64px;" class="antialias">
+SNP芯片原理<br>
+</div>
+</div>
+</div>
+			
+			<div class="componentContainer " style="top: 221px; left: 150px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 36px;" class="antialias">
+<div><ul><li><span style="line-height: normal;">核酸杂交反应原理</span><br></li><li><span style="line-height: normal;">单碱基延伸反应原理</span><br></li><li><span style="line-height: normal;">等位基因特异性引物延伸反应原理</span><br></li><li><span style="line-height: normal;">“一步”反应原理</span><br></li><li><span style="line-height: normal;">引物连接反应原理</span><br></li><li><span style="line-height: normal;">限制性内切酶反应原理</span><br></li><li><span style="line-height: normal;">蛋白-DNA结合反应原理</span><br></li><li><span style="line-height: normal;">荧光分子-DNA结合反应原理</span></li></ul>&nbsp; &nbsp; ...</div>
+</div>
+</div>
+</div>
+			
+			</div>
+		
+		</div>
+	
+		
+			<div class="step future" data-state="strut-slide-5 bg-surf-grad-darkgreen " data-x="8560.64" data-y="4101.12" data-scale="2" id="step-6" style="position: absolute; -webkit-transform: translate(-50%, -50%) translate3d(8560.64px, 4101.12px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(2); -webkit-transform-style: preserve-3d;">
+			<div class="bg-solid-yellow slideContainer strut-slide-5" style="width: 1024px; height: 768px;">
+			<div class="themedArea">
+			
+			</div>
+			
+			<div class="componentContainer " style="top: 274px; left: 117px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 36px;" class="antialias">
+<ul><li>美国Affymetrix公司2007 年5月份推出<br></li></ul><span style="line-height: 36px;"><br></span><ul><li>超过906,600个SNP和超过946,000个用于检测</li></ul><span style="line-height: 1em;">&nbsp; &nbsp; 拷贝数变化的探针</span><br><br><ul><li>特点：全基因组覆盖、样本处理简单、检测快速</li></ul>
+</div>
+</div>
+</div>
+			
+			<div class="componentContainer " style="top: 84px; left: 149px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 48px;" class="antialias">
+Genome-Wide Human SNP Array 6.0<br>
+</div>
+</div>
+</div>
+			
+			</div>
+		
+		</div>
+	
+		
+			<div class="step future" data-state="strut-slide-6 bg-surf-grad-darkgreen " data-x="5816.32" data-y="4131.84" data-scale="2" id="step-7" style="position: absolute; -webkit-transform: translate(-50%, -50%) translate3d(5816.32px, 4131.84px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(2); -webkit-transform-style: preserve-3d;">
+			<div class="bg-solid-yellow slideContainer strut-slide-6" style="width: 1024px; height: 768px;">
+			<div class="themedArea">
+			
+			</div>
+			
+			<div class="componentContainer " style="top: 51px; left: 47px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 36px;" class="antialias">
+<div>基于GENEChip平台的人SNP6.0芯片实验流程：<br></div>
+</div>
+</div>
+</div>
+			
+			<div class="componentContainer " style="top: 133px; left: 43px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: 939px; height: 568.91px;">
+<div class="transformContainer" style="-webkit-transform: scale(0.76, 0.76);
+-moz-transform: scale(0.76, 0.76);
+transform: scale(0.76, 0.76)">
+<img src="./SNP_microarray_files/lkZMLOC.jpg">
+</div>
+</div>
+			
+			</div>
+		
+		</div>
+	
+		
+			<div class="step future" data-state="strut-slide-7 bg-surf-grad-darkgreen " data-x="7236.266666666666" data-y="6497.28" data-scale="2" id="step-8" style="position: absolute; -webkit-transform: translate(-50%, -50%) translate3d(7236.266666666666px, 6497.28px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(2); -webkit-transform-style: preserve-3d;">
+			<div class="bg-solid-yellow slideContainer strut-slide-7" style="width: 1024px; height: 768px;">
+			<div class="themedArea">
+			
+			</div>
+			
+			<div class="componentContainer " style="top: 58px; left: 43px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 36px;" class="antialias">
+基于GeneTitan平台的Axiom基因分型芯片检测流程：<br>
+</div>
+</div>
+</div>
+			
+			<div class="componentContainer " style="top: 138px; left: 46px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: 933px; height: 523.74px;">
+<div class="transformContainer" style="-webkit-transform: scale(1.43, 1.43);
+-moz-transform: scale(1.43, 1.43);
+transform: scale(1.43, 1.43)">
+<img src="./SNP_microarray_files/RgEXi6o.jpg">
+</div>
+</div>
+			
+			</div>
+		
+		</div>
+	
+		
+			<div class="step future" data-state="strut-slide-8 bg-surf-grad-darkgreen " data-x="9966.933333333332" data-y="6512.64" data-scale="2" id="step-9" style="position: absolute; -webkit-transform: translate(-50%, -50%) translate3d(9966.933333333332px, 6512.64px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(2); -webkit-transform-style: preserve-3d;">
+			<div class="bg-solid-yellow slideContainer strut-slide-8" style="width: 1024px; height: 768px;">
+			<div class="themedArea">
+			
+			</div>
+			
+			<div class="componentContainer " style="top: 98px; left: 302px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 64px;" class="antialias">
+<font color="#333333">SNP芯片的应用</font>
+</div>
+</div>
+</div>
+			
+			<div class="componentContainer " style="top: 213px; left: 127px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 36px;" class="antialias">
+<ul><li><span style="line-height: normal;"><b>疾病预防和个性化治疗</b></span><br></li></ul>
+</div>
+</div>
+</div>
+			
+			<div class="componentContainer " style="top: 276px; left: 144px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 36px;" class="antialias">
+&nbsp;通过基因分析来筛选易感个体、重点保护高危人群<br>
+</div>
+</div>
+</div>
+			
+			<div class="componentContainer " style="top: 338px; left: 154px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 36px;" class="antialias">
+对不同的基因型的人使用不同的药物和治疗手段<br>
+</div>
+</div>
+</div>
+			
+			<div class="componentContainer " style="top: 417px; left: 128px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 36px;" class="antialias">
+<ul><li><span style="line-height: normal;"><b>开发药物</b></span><br></li></ul>
+</div>
+</div>
+</div>
+			
+			<div class="componentContainer " style="top: 481px; left: 150px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 36px;" class="antialias">
+药物基因组学<br>
+</div>
+</div>
+</div>
+			
+			<div class="componentContainer " style="top: 559px; left: 123px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 36px;" class="antialias">
+<ul><li><span style="line-height: normal;"><b>个体识别</b></span></li></ul>
+</div>
+</div>
+</div>
+			
+			<div class="componentContainer " style="top: 627px; left: 155px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 36px;" class="antialias">
+基因身份证<br>
+</div>
+</div>
+</div>
+			
+			</div>
+		
+		</div>
+	
+		
+			<div class="step future" data-state="strut-slide-9 bg-surf-grad-darkgreen " data-x="12670.293333333333" data-y="6512.64" data-scale="2" id="step-10" style="position: absolute; -webkit-transform: translate(-50%, -50%) translate3d(12670.293333333333px, 6512.64px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(2); -webkit-transform-style: preserve-3d;">
+			<div class="bg-solid-yellow slideContainer strut-slide-9" style="width: 1024px; height: 768px;">
+			<div class="themedArea">
+			
+			</div>
+			
+			<div class="componentContainer " style="top: 88px; left: 414px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 48px;" class="antialias">
+参考资料<br>
+</div>
+</div>
+</div>
+			
+			<div class="componentContainer " style="top: 210px; left: 41px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 25px;" class="antialias">
+<div>[1] http://www.affymetrix.com/estore/browse/products.jsp?productId=131533#1_1.</div><div>[2]http://en.wikipedia.org/wiki/SNP_array.</div><div>[3]李穗雯, 胡大春. 单核苷酸多态性检测方法的研究进展[J]. 国际检验医学杂志,&nbsp;</div><div>&nbsp; &nbsp; &nbsp; 2013(12): 1559–1561.</div><div>[4]汪维鹏, 倪坤仪, 周国华. 单核苷酸多态性检测方法的研究进展[J]. 遗传, 2006(01)</div><div>&nbsp; &nbsp; &nbsp; : 117–126.</div><div>[5]张小燕, 左明雪, 张占军, et al. 用基因芯片检测单核苷酸多态性反应原理[J]. 中国生</div><div>&nbsp; &nbsp; &nbsp; 物工程杂志, 2005(11): 57–61.</div><div>[6]赵克健 主编.现代药学名词手册.北京：中国医药科技出版社.2004.第555页.</div>
+</div>
+</div>
+</div>
+			
+			</div>
+		
+		</div>
+	
+		
+			<div class="step future" data-state="strut-slide-10 bg-surf-grad-darkgreen " data-x="9980.586666666666" data-y="4101.12" data-z="-2000" data-scale="1" id="step-11" style="position: absolute; -webkit-transform: translate(-50%, -50%) translate3d(9980.586666666666px, 4101.12px, -2000px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1); -webkit-transform-style: preserve-3d;">
+			<div class=" slideContainer strut-slide-10" style="width: 1024px; height: 768px;">
+			<div class="themedArea">
+			
+			</div>
+			
+			<div class="componentContainer " style="top: 273px; left: 347px; -webkit-transform:   ; -moz-transform:   ; transform:   ; width: px; height: px;">
+<div class="transformContainer" style="-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div style="font-size: 72px;" class="antialias">
+<font color="#d43b3b">谢谢大家</font><br>
+</div>
+</div>
+</div>
+			
+			</div>
+		
+		</div>
+	
+	<div id="overview" class="step future" data-x="9912.32" data-y="4085.76" data-scale="9" style="position: absolute; -webkit-transform: translate(-50%, -50%) translate3d(9912.32px, 4085.76px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(9); -webkit-transform-style: preserve-3d;"></div>
+	
+</div></div>
+</div>
+</div>
+<div class="hint">
+    <p>Use a spacebar or arrow keys to navigate</p>
+</div></body></html>
