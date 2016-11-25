@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/cytoscape.min.js"></script>
+</head>
+
+<body>
+    <div id='cy'></div>
+    <div id='ipt' class="ui-widget-content">
+        <span>search</span>
+        <input id="searchbox" type="text" />
+        <div><input type="checkbox" id="mRNAcheck" checked/>mRNA</div>
+        <div><input type="checkbox" id="miRNAcheck" checked/>miRNA</div>
+        <div><input type="checkbox" id="lncRNAcheck" checked/>lncRNA</div>
+        <button type="button" id="relogout">重新布局</button>
+    </div>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
