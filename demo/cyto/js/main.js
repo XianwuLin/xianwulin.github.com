@@ -273,7 +273,7 @@ $(document).keyup(function(event) {
     }
 });
 
-$.get("data/data.txt", function(dataText) {
+$.get("data/data.txt?t=" + Math.random(), function(dataText) {
     var allTextLines = dataText.split(/\r\n|\n/);
     var headers = allTextLines[0].split(/\t/);
     var lines = [];
