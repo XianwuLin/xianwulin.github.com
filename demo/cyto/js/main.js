@@ -13,17 +13,17 @@ var cy = cytoscape({
         style: {
             'background-color': 'blue',
             'label': 'data(id)',
-            'width': 6,
-            'height': 6,
-            "font-size": 1
+            'width': 10,
+            'height': 10,
+            "font-size": 1,
         }
     }, {
         selector: "node[category='miRNA']",
         style: {
             'background-color': 'red',
             'label': 'data(id)',
-            'width': 6,
-            'height': 6,
+            'width': 10,
+            'height': 10,
             "font-size": 1,
             "shape": "rectangle"
         }
@@ -32,8 +32,8 @@ var cy = cytoscape({
         style: {
             'background-color': 'black',
             'label': 'data(id)',
-            'width': 6,
-            'height': 6,
+            'width': 10,
+            'height': 10,
             "font-size": 1,
             "shape": "triangle"
         }
@@ -41,8 +41,8 @@ var cy = cytoscape({
         selector: "edge[category=1]",
         style: {
             'width': 2,
-            'line-color': '#555',
-            'target-arrow-color': '#555',
+            'line-color': '#888',
+            'target-arrow-color': '#888',
             'curve-style': 'bezier',
             'target-arrow-shape': 'triangle',
             'source-arrow-shape': 'none',
@@ -52,9 +52,9 @@ var cy = cytoscape({
         selector: "edge[category=2]",
         style: {
             'width': 2,
-            'line-color': '#555',
+            'line-color': '#888',
             'curve-style': 'bezier',
-            'target-arrow-color': '#555',
+            'target-arrow-color': '#888',
             'target-arrow-shape': 'triangle',
             'source-arrow-shape': 'none',
             'line-style': 'dashed'
@@ -63,9 +63,9 @@ var cy = cytoscape({
         selector: "edge[category=3]",
         style: {
             'width': 2,
-            'line-color': '#555',
+            'line-color': '#888',
             'curve-style': 'bezier',
-            'target-arrow-color': '#555',
+            'target-arrow-color': '#888',
             'target-arrow-shape': 'triangle',
             'source-arrow-shape': 'none',
             'line-style': 'solid'
@@ -82,7 +82,7 @@ var cy = cytoscape({
         style: {
             'border-color': 'red',
             'border-width': '2px',
-            'color': 'blue'
+            'color': 'darkblue'
         }
     }, {
         selector: "node[category='lncRNA'].highlight",
@@ -122,15 +122,17 @@ var cy = cytoscape({
     }, ]
 });
 
-// cy.add(insertdata)
+function relogout() {
+    cy.elements().layout({
+        name: 'cose-bilkent',
+        nodeRepulsion: 30000,
+    })
+    cy.zoom({
+        level: 1
+    })
+    cy.center()
+}
 
-cy.elements().layout({
-    name: 'concentric'
-})
-cy.zoom({
-    level: 1
-})
-cy.center()
 cy.on('tap', 'node', function(e) {
     var sel = e.cyTarget;
     cy.elements().removeClass('semitransp')
@@ -247,15 +249,6 @@ $('#miRNAcheck').change(function() {
     }
 });
 
-function relogout() {
-    cy.elements().layout({
-        name: 'concentric'
-    })
-    cy.zoom({
-        level: 1
-    })
-    cy.center()
-}
 
 $("#relogout").click(function() {
     relogout()
