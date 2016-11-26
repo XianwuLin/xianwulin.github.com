@@ -1,3 +1,7 @@
+var hide_node = new Array()
+
+$("#ipt").draggable()
+
 var cy = cytoscape({
 
     container: document.getElementById('cy'),
@@ -157,14 +161,6 @@ $("#ipt input").bind('keydown', function(e) {
     // console.log(item_name)
 })
 
-function restore() {
-    hide_node.forEach(function(element) {
-        cy.add(element)
-    }, this);
-}
-
-var hide_node = new Array()
-
 $('#mRNAcheck').change(function() {
     if ($(this).is(":checked")) {
         var temp_array = new Array();
@@ -251,7 +247,7 @@ $('#miRNAcheck').change(function() {
     }
 });
 
-$("#relogout").click(function() {
+function relogout() {
     cy.elements().layout({
         name: 'concentric'
     })
@@ -259,9 +255,13 @@ $("#relogout").click(function() {
         level: 1
     })
     cy.center()
+}
+
+$("#relogout").click(function() {
+    relogout()
 })
 
-$("#ipt").draggable()
+
 
 $(document).keyup(function(event) {
 
@@ -278,8 +278,9 @@ $.get("data/data.txt", function(dataText) {
     var headers = allTextLines[0].split(/\t/);
     var lines = [];
     var mrna_set = new Set();
-    var mmu_set = new Set();
-    var link = new Set();
+    var mirna_set = new Set();
+    var lnc_set = new Set();
+    var link_set = new Set();
     var flag1 = ""
     var flag2 = ""
     for (var i = 0; i < allTextLines.length; i++) {
@@ -290,43 +291,94 @@ $.get("data/data.txt", function(dataText) {
                 tarr.push(data[j]);
             }
             if (tarr[2] == "miRNA") {
-                mmu_set.add(tarr[0])
+                mirna_set.add(tarr[0])
                 flag1 = "miRNA"
             }
             if (tarr[2] == "mRNA") {
                 mrna_set.add(tarr[0])
                 flag1 = "mRNA"
             }
+            if (tarr[2] == "lncRNA") {
+                lnc_set.add(tarr[0])
+                flag1 = "lncRNA"
+            }
             if (tarr[3] == "miRNA") {
-                mmu_set.add(tarr[1])
+                mirna_set.add(tarr[1])
                 flag2 = "miRNA"
             }
             if (tarr[3] == "mRNA") {
                 mrna_set.add(tarr[1])
                 flag2 = "mRNA"
             }
-            link.add((tarr[0], tarr[1], flag1, flag2))
+            if (tarr[3] == "lncRNA") {
+                lnc_set.add(tarr[1])
+                flag1 = "lncRNA"
+            }
+            link_set.add([tarr[0], tarr[1], flag1, flag2])
         }
     }
-    for (var i = 0; i < mrna_set.length; i++) {
-        cy.add({ data: { id: mrna_set[i], category: "mRNA" } })
-    }
-    for (var i = 0; i < mmu_set.length; i++) {
-        cy.add({ data: { id: mrna_set[i], category: "miRNA" } })
-    }
-    for (var i = 0; i < link.length; i++) {
-        var data0 = link[i][0]
-        var data1 = link[i][1]
-        var flag1 = link[i][2]
-        var flag2 = link[i][3]
+    mrna_set.forEach(function(mrna) {
+        cy.add({
+            data: {
+                id: mrna,
+                category: "mRNA"
+            }
+        })
+    }, this);
+
+    mirna_set.forEach(function(mirna) {
+        cy.add({
+            data: {
+                id: mirna,
+                category: "miRNA"
+            }
+        })
+    }, this);
+
+    lnc_set.forEach(function(lncrna) {
+        cy.add({
+            data: {
+                id: mirna,
+                category: "miRNA"
+            }
+        })
+    }, this);
+
+    link_set.forEach(function(link) {
+        var data0 = link[0]
+        var data1 = link[1]
+        var flag1 = link[2]
+        var flag2 = link[3]
         if (flag1 === "mRNA" && flag2 === "mRNA") {
-            cy.add({ data: { id: data0 + data1, source: data0, target: data1, category: 3 } })
+            cy.add({
+                data: {
+                    id: data0 + data1,
+                    source: data0,
+                    target: data1,
+                    category: 3
+                }
+            })
         }
         if ((flag1 === "mRNA" && flag2 === "miRNA") || ((flag1 === "miRNA" && flag2 === "mRNA"))) {
-            cy.add({ data: { id: data0 + data1, source: data0, target: data1, category: 2 } })
+            cy.add({
+                data: {
+                    id: data0 + data1,
+                    source: data0,
+                    target: data1,
+                    category: 2
+                }
+            })
         }
         if ((flag1 === "mRNA" && flag2 === "lncRNA") || ((flag1 === "lncRNA" && flag2 === "mRNA"))) {
-            cy.add({ data: { id: data0 + data1, source: data0, target: data1, category: 1 } })
+            cy.add({
+                data: {
+                    id: data0 + data1,
+                    source: data0,
+                    target: data1,
+                    category: 1
+                }
+            })
         }
-    }
+    }, this);
+    relogout()
 });
