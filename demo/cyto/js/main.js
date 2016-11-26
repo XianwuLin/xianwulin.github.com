@@ -30,7 +30,7 @@ var cy = cytoscape({
     }, {
         selector: "node[category='lncRNA']",
         style: {
-            'background-color': 'black',
+            'background-color': 'green',
             'label': 'data(id)',
             'width': 10,
             'height': 10,
