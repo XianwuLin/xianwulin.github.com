@@ -336,7 +336,7 @@ $.get("data/data.txt?t=" + Math.random(), function(dataText) {
     lnc_set.forEach(function(lncrna) {
         cy.add({
             data: {
-                id: mirna,
+                id: lncrna,
                 category: "miRNA"
             }
         })
