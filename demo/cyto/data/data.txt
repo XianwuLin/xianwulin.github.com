@@ -9,7 +9,6 @@ Ciita	Stat1	mRNA	mRNA
 Foxm1	Birc5	mRNA	mRNA
 Foxm1	Mmp9	mRNA	mRNA
 Foxo1	Irf4	mRNA	mRNA
-Foxp3	Treg	mRNA	mRNA
 Ifng	Stat1	mRNA	mRNA
 Il21	Foxp3	mRNA	mRNA
 Il4ra	Irf4	mRNA	mRNA
@@ -206,8 +205,8 @@ mmu-miR-429-3p	Itga4	miRNA	mRNA
 mmu-miR-429-3p	Ly6a	miRNA	mRNA
 mmu-miR-429-3p	Mmd	miRNA	mRNA
 mmu-miR-451a	Psmb8	miRNA	mRNA
-mmu-miR-499a-5p	Irf-1	miRNA	mRNA
-mmu-miR-502-5p	Irf-1	miRNA	mRNA
+mmu-miR-499a-5p	Irf1	miRNA	mRNA
+mmu-miR-502-5p	Irf1	miRNA	mRNA
 mmu-miR-5127	Cd83	miRNA	mRNA
 mmu-miR-708-5p	Sell	miRNA	mRNA
 mmu-miR-7a-5p	Cd93	miRNA	mRNA
