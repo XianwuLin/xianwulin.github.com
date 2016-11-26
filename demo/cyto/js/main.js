@@ -272,3 +272,7 @@ $(document).keyup(function(event) {
             rmClass();
     }
 });
+
+$.get("data/data.txt", function(result) {
+    console.log(result)
+});
