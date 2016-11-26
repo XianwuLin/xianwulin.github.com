@@ -13,8 +13,12 @@
 </head>
 
 <body>
-    <div id='cy'></div>
-    <div id='ipt' class="ui-widget-content">
+    <div class='uil-ripple-css' id="loadding" style='transform:scale(0.6);'>
+        <div></div>
+        <div></div>
+    </div>
+    <div id='cy' style="display:none;"></div>
+    <div id='ipt' class="ui-widget-content" style="display:none;">
         <span>search</span>
         <input id="searchbox" type="text" />
         <div><input type="checkbox" id="mRNAcheck" checked/>mRNA</div>
@@ -22,7 +26,6 @@
         <div><input type="checkbox" id="lncRNAcheck" checked/>lncRNA</div>
         <button type="button" id="relogout">重新布局</button>
     </div>
-    <!--<script src="js/data.js"></script>-->
     <script src="js/main.js"></script>
 </body>
 

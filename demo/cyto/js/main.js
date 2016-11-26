@@ -126,6 +126,11 @@ function relogout() {
     cy.elements().layout({
         name: 'cose-bilkent',
         nodeRepulsion: 30000,
+        ready: function() {
+            $("#loadding").hide(150)
+            $("#cy").show(150)
+            $("#ipt").show(150)
+        },
     })
     cy.zoom({
         level: 1
