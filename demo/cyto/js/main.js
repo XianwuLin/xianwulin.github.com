@@ -254,6 +254,48 @@ $('#miRNAcheck').change(function() {
     }
 });
 
+$('#lncRNAcheck').change(function() {
+    if ($(this).is(":checked")) {
+        var temp_array = new Array();
+        for (var i = 0; i < hide_node.length; i++) {
+            element = hide_node[i]
+            if (element.isEdge()) {
+                if (element.source().attr("category") == 'lncRNA' || element.target().attr("category") == 'lncRNA') {
+                    if (hide_node.indexOf(element.source())) {
+                        cy.add(element.source())
+                        temp_array.push(i)
+                    }
+                    if (hide_node.indexOf(element.target())) {
+                        cy.add(element.target())
+                        temp_array.push(i)
+                    }
+                    cy.add(element)
+                    temp_array.push(i)
+                }
+            }
+        }
+        temp_array.forEach(function(element) {
+            hide_node.splice(element, 1)
+        }, this);
+    } else {
+        cy.elements().forEach(function(element) {
+            if (element.isEdge()) {
+                if (element.source().attr("category") == 'lncRNA' || element.target().attr("category") == 'lncRNA') {
+                    hide_node.push(element)
+                    cy.remove(element)
+                }
+            }
+        }, this);
+        cy.elements().forEach(function(element) {
+            if (element.isNode()) {
+                if (element.neighborhood().length === 0) {
+                    hide_node.push(element)
+                    cy.remove(element)
+                }
+            }
+        }, this);
+    }
+});
 
 $("#relogout").click(function() {
     relogout()
