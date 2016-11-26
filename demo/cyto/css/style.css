@@ -5,6 +5,9 @@ body {
 }
 
 #cy {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     display: block;
@@ -25,9 +28,9 @@ body {
 }
 
 #loadding {
-    /*position: absolute;*/
+    position: fixed;
     top: 40%;
-    margin: 0 auto;
+    left: 45%;
     width: 150px;
     height: 150px;
     display: block;

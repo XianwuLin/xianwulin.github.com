@@ -299,6 +299,7 @@ $('#lncRNAcheck').change(function() {
 
 $("#relogout").click(function() {
     relogout()
+    $("#loadding").show()
 })
 
 
