@@ -118,7 +118,7 @@ var cy = cytoscape({
     }, ]
 });
 
-cy.add(insertdata)
+// cy.add(insertdata)
 
 cy.elements().layout({
     name: 'concentric'
