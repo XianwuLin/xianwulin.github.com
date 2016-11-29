@@ -35,7 +35,7 @@ var cy = cytoscape({
             'width': 10,
             'height': 10,
             "font-size": 1,
-            "shape": "triangle"
+            "shape": "star"
         }
     }, {
         selector: "edge[category=1]",
@@ -144,6 +144,10 @@ cy.on('tap', 'node', function(e) {
     cy.elements().removeClass('highlight')
     cy.elements().difference(sel.neighborhood()).not(sel).addClass('semitransp')
     sel.addClass('highlight').neighborhood().addClass('highlight')
+        // cy.elements().forEach(function(element) {
+        //     console.log(element.id())
+        //     console.log(element.position())
+        // }, this);
 })
 cy.on('cxttap', function(e) {
     rmClass()

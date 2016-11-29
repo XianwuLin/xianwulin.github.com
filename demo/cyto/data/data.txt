@@ -257,6 +257,16 @@ Il6	Stat3	mRNA	mRNA
 Il21	Stat3	mRNA	mRNA
 Il2	Stat3	mRNA	mRNA
 Il27	Stat1	mRNA	mRNA
+Blimp1	Bcl6	mRNA	mRNA
+Blimp1	Cxcr5	mRNA	mRNA
+Bcl6	Cxcr5	mRNA	mRNA
+Ascl2	Cxcr5	mRNA	mRNA
+Ascl2	Il4	mRNA	mRNA
+Ascl2	Cxcr4	mRNA	mRNA
+Ascl2	Tcf7	mRNA	mRNA
+Ascl2	Il2	mRNA	mRNA
+Ascl2	Ifng	mRNA	mRNA
+Ascl2	Il17a	mRNA	mRNA
 E330020D12Rik	Arg1	lncRNA	mRNA
 A730085K08Rik	Irf4	lncRNA	mRNA
 A730085K08Rik	Il21	lncRNA	mRNA
