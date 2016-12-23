@@ -124,8 +124,8 @@ var cy = cytoscape({
 
 function relogout() {
     cy.elements().layout({
-        // name: 'cose-bilkent',
-        // nodeRepulsion: 30000,
+        name: 'cose-bilkent',
+        nodeRepulsion: 30000,
         ready: function() {
             $("#loadding").hide(150)
             $("#cy").show(150)
