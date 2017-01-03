@@ -1,0 +1,28 @@
+html,
+body {
+    margin: 0;
+    height: 100%;
+}
+
+#sigma-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+}
+
+#ipt {
+    position: absolute;
+    right: 70px;
+    top: 40px;
+    width: 100px;
+    background: #eee;
+    padding: 10px;
+}
+
+#searchbox {
+    display: inline;
+    width: 100px;
+}
