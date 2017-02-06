@@ -16,27 +16,33 @@ sigma.classes.graph.addMethod('neighbors', function(nodeId) {
 
 
 s = sigma.parsers.gexf(
-    'data/3.gexf', {
+    'http://7xnml0.com1.z0.glb.clouddn.com/total.gexf', {
         container: 'sigma-container',
         settings: {
             defaultEdgeType: 'arrow',
             defaultNodeBorderColor: "#000",
-            // defaultLabelSize: 16,
             borderSize: 1,
+            defaultLabelSize: 16,
+            labelColor: "#34495E",
             minEdgeSize: 0.25,
             maxEdgeSize: 0.6,
             maxNodeSize: 10,
+            minArrowSize: 10000,
+            zoomMin: 0.005
         }
     },
     function(s) {
         // We first need to save the original colors of our
         // nodes and edges, like this:
         s.graph.nodes().forEach(function(n) {
+            n.color = "#2A80B9";
             n.originalColor = n.color;
         });
         s.graph.edges().forEach(function(e) {
+            e.color = "#E77E23";
             e.originalColor = e.color;
         });
+        s.refresh();
 
         // When a node is clicked, we check for each node
         // if it is a neighbor of the clicked one. If not,
@@ -97,15 +103,26 @@ s = sigma.parsers.gexf(
                 $("#searchlabel").html("");
                 rmClass()
                 item_name = $("#ipt input").val().toLowerCase()
-
+                var flag = false;
                 s.graph.nodes().forEach(function(e) {
                     if (e.id.toLowerCase() == item_name) {
                         e.color = 'yellow';
-                        s.cameras[0].goTo({ x: e.x, y: e.y, ratio: 1 })
+                        sigma.misc.animation.camera(
+                            s.camera, {
+                                x: e[s.camera.readPrefix + 'x'],
+                                y: e[s.camera.readPrefix + 'y'],
+                                ratio: s.cameras[0].ratio
+                            }, {
+                                duration: s.settings('animationsTime') || 300
+                            }
+                        );
                         s.refresh();
-                        $("#searchlabel").html("true");
+                        flag = true;
                     }
                 });
+                if (flag == false) {
+                    $("#searchlabel").html("NOT FIND");
+                }
             }
         })
 
