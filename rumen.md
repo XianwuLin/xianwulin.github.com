@@ -6,7 +6,7 @@
 ## 前端
 
 ### 基础
-* PhotoShop
+* PhotoShop(http://www.imooc.com/learn/159)
 * Head First HTML与CSS、XHTML（中文版）(http://vdisk.weibo.com/s/BTLfj8710jGDm)
 * JavaScript 教程(https://wangdoc.com/javascript/)
 * JavaScript权威指南（第六版）(https://pan.baidu.com/s/1gdIX2M3)
