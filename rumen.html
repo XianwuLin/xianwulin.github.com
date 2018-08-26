@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-alpha/dist/katex.min.css" integrity="sha384-BTL0nVi8DnMrNdMQZG1Ww6yasK9ZGnUxL1ZWukXQ7fygA1py52yPp9W4wrR00VML" crossorigin="anonymous">
+        <style>
+/*--------------------------------------------------------------------------------------------- * Copyright (c) Microsoft Corporation. All rights reserved. * Licensed under the MIT License. See License.txt in the project root for license information. *--------------------------------------------------------------------------------------------*/ body { font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback"; font-size: 14px; padding: 0 26px; line-height: 22px; word-wrap: break-word; } #code-csp-warning { position: fixed; top: 0; right: 0; color: white; margin: 16px; text-align: center; font-size: 12px; font-family: sans-serif; background-color:#444444; cursor: pointer; padding: 6px; box-shadow: 1px 1px 1px rgba(0,0,0,.25); } #code-csp-warning:hover { text-decoration: none; background-color:#007acc; box-shadow: 2px 2px 2px rgba(0,0,0,.25); } body.scrollBeyondLastLine { margin-bottom: calc(100vh - 22px); } body.showEditorSelection .code-line { position: relative; } body.showEditorSelection .code-active-line:before, body.showEditorSelection .code-line:hover:before { content: ""; display: block; position: absolute; top: 0; left: -12px; height: 100%; } body.showEditorSelection li.code-active-line:before, body.showEditorSelection li.code-line:hover:before { left: -30px; } .vscode-light.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(0, 0, 0, 0.15); } .vscode-light.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(0, 0, 0, 0.40); } .vscode-light.showEditorSelection .code-line .code-line:hover:before { border-left: none; } .vscode-dark.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(255, 255, 255, 0.4); } .vscode-dark.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(255, 255, 255, 0.60); } .vscode-dark.showEditorSelection .code-line .code-line:hover:before { border-left: none; } .vscode-high-contrast.showEditorSelection .code-active-line:before { border-left: 3px solid rgba(255, 160, 0, 0.7); } .vscode-high-contrast.showEditorSelection .code-line:hover:before { border-left: 3px solid rgba(255, 160, 0, 1); } .vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before { border-left: none; } img { max-width: 100%; max-height: 100%; } a { text-decoration: none; } a:hover { text-decoration: underline; } a:focus, input:focus, select:focus, textarea:focus { outline: 1px solid -webkit-focus-ring-color; outline-offset: -1px; } hr { border: 0; height: 2px; border-bottom: 2px solid; } h1 { padding-bottom: 0.3em; line-height: 1.2; border-bottom-width: 1px; border-bottom-style: solid; } h1, h2, h3 { font-weight: normal; } h1 code, h2 code, h3 code, h4 code, h5 code, h6 code { font-size: inherit; line-height: auto; } table { border-collapse: collapse; } table > thead > tr > th { text-align: left; border-bottom: 1px solid; } table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table > tbody > tr > td { padding: 5px 10px; } table > tbody > tr + tr > td { border-top: 1px solid; } blockquote { margin: 0 7px 0 5px; padding: 0 16px 0 10px; border-left-width: 5px; border-left-style: solid; } code { font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback"; font-size: 14px; line-height: 19px; } body.wordWrap pre { white-space: pre-wrap; } .mac code { font-size: 12px; line-height: 18px; } pre:not(.hljs), pre.hljs code > div { padding: 16px; border-radius: 3px; overflow: auto; } /** Theming */ pre code { color: var(--vscode-editor-foreground); } .vscode-light pre:not(.hljs), .vscode-light code > div { background-color: rgba(220, 220, 220, 0.4); } .vscode-dark pre:not(.hljs), .vscode-dark code > div { background-color: rgba(10, 10, 10, 0.4); } .vscode-high-contrast pre:not(.hljs), .vscode-high-contrast code > div { background-color: rgb(0, 0, 0); } .vscode-high-contrast h1 { border-color: rgb(0, 0, 0); } .vscode-light table > thead > tr > th { border-color: rgba(0, 0, 0, 0.69); } .vscode-dark table > thead > tr > th { border-color: rgba(255, 255, 255, 0.69); } .vscode-light h1, .vscode-light hr, .vscode-light table > tbody > tr + tr > td { border-color: rgba(0, 0, 0, 0.18); } .vscode-dark h1, .vscode-dark hr, .vscode-dark table > tbody > tr + tr > td { border-color: rgba(255, 255, 255, 0.18); } 
+</style>
+<style>
+/* Tomorrow Theme */ /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */ /* Original theme - https://github.com/chriskempson/tomorrow-theme */ /* Tomorrow Comment */ .hljs-comment, .hljs-quote { color: #8e908c; } /* Tomorrow Red */ .hljs-variable, .hljs-template-variable, .hljs-tag, .hljs-name, .hljs-selector-id, .hljs-selector-class, .hljs-regexp, .hljs-deletion { color: #c82829; } /* Tomorrow Orange */ .hljs-number, .hljs-built_in, .hljs-builtin-name, .hljs-literal, .hljs-type, .hljs-params, .hljs-meta, .hljs-link { color: #f5871f; } /* Tomorrow Yellow */ .hljs-attribute { color: #eab700; } /* Tomorrow Green */ .hljs-string, .hljs-symbol, .hljs-bullet, .hljs-addition { color: #718c00; } /* Tomorrow Blue */ .hljs-title, .hljs-section { color: #4271ae; } /* Tomorrow Purple */ .hljs-keyword, .hljs-selector-tag { color: #8959a8; } .hljs { display: block; overflow-x: auto; color: #4d4d4c; padding: 0.5em; } .hljs-emphasis { font-style: italic; } .hljs-strong { font-weight: bold; }
+</style>
+<style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'HelveticaNeue-Light', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="%E5%85%A5%E9%97%A8%E4%B9%A6%E7%B1%8D">入门书籍</h1>
+<p>开发者路线图: <a href="https://juejin.im/entry/5a7723325188257a88503731">https://juejin.im/entry/5a7723325188257a88503731</a></p>
+<hr>
+<h2 id="%E5%89%8D%E7%AB%AF">前端</h2>
+<h3 id="%E5%9F%BA%E7%A1%80">基础</h3>
+<ul>
+<li>PhotoShop(<a href="http://www.imooc.com/learn/159">http://www.imooc.com/learn/159</a> <a href="http://www.ps-xxw.cn/psspjc.html">http://www.ps-xxw.cn/psspjc.html</a>)</li>
+<li>Head First HTML与CSS、XHTML（中文版）(<a href="http://vdisk.weibo.com/s/BTLfj8710jGDm">http://vdisk.weibo.com/s/BTLfj8710jGDm</a>)</li>
+<li>JavaScript 教程(<a href="https://wangdoc.com/javascript/">https://wangdoc.com/javascript/</a>)</li>
+<li>JavaScript权威指南（第六版）(<a href="https://pan.baidu.com/s/1gdIX2M3">https://pan.baidu.com/s/1gdIX2M3</a>)</li>
+<li>HTTP权威指南(<a href="https://pan.baidu.com/s/15Tlq4">https://pan.baidu.com/s/15Tlq4</a>)</li>
+<li>JavaScript DOM编程艺术(<a href="http://vdisk.weibo.com/s/DtMaH17QyhoV">http://vdisk.weibo.com/s/DtMaH17QyhoV</a>)</li>
+</ul>
+<h3 id="%E8%BF%9B%E9%98%B6">进阶</h3>
+<ul>
+<li>bootstrap</li>
+<li>angularjs</li>
+<li>vue</li>
+<li>react</li>
+<li>echarts</li>
+<li>d3</li>
+</ul>
+<hr>
+<h2 id="%E5%90%8E%E7%AB%AF">后端</h2>
+<h3 id="%E5%9F%BA%E7%A1%80%E4%B8%AD%E7%9A%84%E5%9F%BA%E7%A1%80">基础中的基础</h3>
+<ul>
+<li>C程序设计语言(<a href="https://pan.baidu.com/s/1iVPgk">https://pan.baidu.com/s/1iVPgk</a>)</li>
+<li>大话数据结构(<a href="https://pan.baidu.com/share/link?shareid=1597788543&amp;uk=1343102438">https://pan.baidu.com/share/link?shareid=1597788543&amp;uk=1343102438</a>)</li>
+</ul>
+<h3 id="%E5%9F%BA%E7%A1%80">基础</h3>
+<h4 id="python%E5%9F%BA%E7%A1%80">python基础</h4>
+<ul>
+<li>python教程(<a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000">https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000</a>)</li>
+<li>Head First Python(<a href="http://vdisk.weibo.com/s/m6nxBAcy-9s">http://vdisk.weibo.com/s/m6nxBAcy-9s</a>)</li>
+<li>简明Python教程(<a href="http://www.old.cuhk.edu.cn/library/dw/tg/il/Python_shen.pdf">http://www.old.cuhk.edu.cn/library/dw/tg/il/Python_shen.pdf</a>)</li>
+<li>a byte of python 中文版(<a href="http://files.cnblogs.com/files/wangshide/A-Byte-of-Python3(%E4%B8%AD%E6%96%87%E7%89%88).pdf">http://files.cnblogs.com/files/wangshide/A-Byte-of-Python3(中文版).pdf</a>)</li>
+</ul>
+<h4 id="python-%E8%BF%9B%E9%98%B6">python 进阶</h4>
+<ul>
+<li>flask</li>
+<li>爬虫</li>
+<li>django</li>
+</ul>
+<h4 id="java">java</h4>
+<ul>
+<li>Head First Java(<a href="https://pan.baidu.com/s/1mgqiMa0">https://pan.baidu.com/s/1mgqiMa0</a>)</li>
+<li>Java编程轻松入门教程(<a href="https://pan.baidu.com/share/init?surl=o9yLBsu">https://pan.baidu.com/share/init?surl=o9yLBsu</a> 密码：wwd0)</li>
+</ul>
+<h4 id="java%E8%BF%9B%E9%98%B6">java进阶</h4>
+<ul>
+<li>ssh</li>
+</ul>
+<hr>
+<h2 id="%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F">操作系统</h2>
+<h3 id="linux%E5%9F%BA%E7%A1%80">linux基础</h3>
+<ul>
+<li>鸟哥的linux私房菜(<a href="http://cn.linux.vbird.org/">http://cn.linux.vbird.org/</a>)</li>
+<li>Linux基础(<a href="https://linuxtools-rst.readthedocs.io/zh_CN/latest/base/index.html">https://linuxtools-rst.readthedocs.io/zh_CN/latest/base/index.html</a>)</li>
+<li>shell 编程入门到精通(<a href="https://edu.aliyun.com/course/155/lesson/list?utm_content=m_42572">https://edu.aliyun.com/course/155/lesson/list?utm_content=m_42572</a>)</li>
+</ul>
+<h3 id="%E8%BF%9B%E9%98%B6">进阶</h3>
+<ul>
+<li>vim</li>
+<li>sed grep</li>
+<li>计算机网络</li>
+<li>docker</li>
+</ul>
+<hr>
+<h2 id="%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</h2>
+<h3 id="%E5%9F%BA%E7%A1%80">基础</h3>
+<ul>
+<li>MySQL必知必会(<a href="https://pan.baidu.com/share/link?shareid=2403572819&amp;uk=2181873172">https://pan.baidu.com/share/link?shareid=2403572819&amp;uk=2181873172</a>)</li>
+<li>Redis 命令参考(<a href="https://link.zhihu.com/?target=http%3A//redis.readthedocs.org/en/latest/">https://link.zhihu.com/?target=http%3A//redis.readthedocs.org/en/latest/</a>)</li>
+</ul>
+<h3 id="%E8%BF%9B%E9%98%B6">进阶</h3>
+<ul>
+<li>redis设计与实现(<a href="https://raw.githubusercontent.com/songhuiqing/book/master/redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0(%E7%AC%AC%E4%BA%8C%E7%89%88).pdf">https://raw.githubusercontent.com/songhuiqing/book/master/redis设计与实现(第二版).pdf</a>)</li>
+<li>mongo</li>
+</ul>
+<p>后端技术栈: <a href="https://github.com/xingshaocheng/architect-awesome">https://github.com/xingshaocheng/architect-awesome</a></p>
+<hr>
+<h2 id="%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BD%AF%E4%BB%B6">客户端软件</h2>
+<h2 id="android">android</h2>
+<ul>
+<li>Android官方培训课程中文版(<a href="http://hukai.me/android-training-course-in-chinese/index.html">http://hukai.me/android-training-course-in-chinese/index.html</a>)</li>
+<li>疯狂Android讲义(<a href="https://pan.baidu.com/s/1eRDF2Ci">https://pan.baidu.com/s/1eRDF2Ci</a>)</li>
+</ul>
+<h2 id="ios">ios</h2>
+<ul>
+<li>斯坦福大学公开课：iOS 7应用开发(<a href="http://open.163.com/special/opencourse/ios7.html">http://open.163.com/special/opencourse/ios7.html</a>)</li>
+</ul>
+
+    </body>
+    </html>
