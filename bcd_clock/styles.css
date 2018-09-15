@@ -1,11 +1,11 @@
 body {
-  background-color: black;
+  background-color: #76101B;
 }
 
 section {
 	width: 60%;
 	margin-left:20%;
-	margin-top: 2%;
+	margin-top: 6%;
 }
 
 .clock-column {
@@ -23,8 +23,8 @@ section {
   position: relative;
 	max-width: 100%;
 	margin: 0.5rem;
-	background-color: firebrick;
-	border-color: firebrick;
+	background-color: #F7EED6;
+	border-color: #F7EED6;
 	background-size: 100% auto;
 	border-radius: 50%;
 	border-style: solid;
