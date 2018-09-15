@@ -1,0 +1,35 @@
+body {
+  background-color: black;
+}
+
+section {
+	width: 50%;
+	margin-left:25%;
+	margin-top: 8%;
+}
+
+.clock-column {
+	display: inline-block;
+  width: 16%;
+}
+
+.dot:before {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
+
+.dot {
+  position: relative;
+	max-width: 100%;
+	margin: 0.5rem;
+	background-color: firebrick;
+	border-color: firebrick;
+	background-size: 100% auto;
+	border-radius: 50%;
+	border-style: solid;
+}
+
+.dot.off {
+	background-color: transparent;
+}
