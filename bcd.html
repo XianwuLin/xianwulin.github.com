@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <title>Binary Clock</title>
+    <style>
+        body {
+            background-color: #571C20;
+            width: 100%;
+        }
+
+        section {
+            width: 70%;
+            margin-left: 14%;
+            margin-top: 6%;
+        }
+
+        .clock-column {
+            display: inline-block;
+            width: 15%;
+        }
+
+        .dot:before {
+            content: '';
+            display: block;
+            padding-top: 100%;
+        }
+
+        .dot {
+            position: relative;
+            max-width: 100%;
+            margin: 0.5rem;
+            background-color: #F7EED6;
+            border-color: #F7EED6;
+            background-size: 100% auto;
+            border-radius: 50%;
+            border-style: solid;
+        }
+
+        .dot.off {
+            background-color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="clock-column" data-index="0">
+            <div class="dot" data-subindex="1"></div>
+            <div class="dot off" data-subindex="0"></div>
+        </div>
+        <div class="clock-column" data-index="1" style="margin-right: 12px">
+            <div class="dot off" data-subindex="3"></div>
+            <div class="dot off" data-subindex="2"></div>
+            <div class="dot" data-subindex="1"></div>
+            <div class="dot off" data-subindex="0"></div>
+        </div>
+        <div class="clock-column" data-index="2">
+            <div class="dot off" data-subindex="2"></div>
+            <div class="dot" data-subindex="1"></div>
+            <div class="dot" data-subindex="0"></div>
+        </div>
+        <div class="clock-column" data-index="3" style="margin-right: 12px">
+            <div class="dot off" data-subindex="3"></div>
+            <div class="dot off" data-subindex="2"></div>
+            <div class="dot" data-subindex="1"></div>
+            <div class="dot off" data-subindex="0"></div>
+        </div>
+        <div class="clock-column" data-index="4">
+            <div class="dot" data-subindex="2"></div>
+            <div class="dot off" data-subindex="1"></div>
+            <div class="dot off" data-subindex="0"></div>
+        </div>
+        <div class="clock-column" data-index="5">
+            <div class="dot" data-subindex="3"></div>
+            <div class="dot off" data-subindex="2"></div>
+            <div class="dot off" data-subindex="1"></div>
+            <div class="dot" data-subindex="0"></div>
+        </div>
+    </section>
+    <script>
+        const BinaryClock = {
+            initialize: function () {
+                let timeArr;
+                setInterval(() => {
+                    timeArr = this.buildTimeArray();
+                    this.buildClock(timeArr);
+                }, 200);
+            },
+
+            buildClock: function (timeArray) {
+                let intArray, value;
+                // Loop over the columns, (hours, minutes, seconds)
+                for (let i in timeArray) {
+                    value = this.convertToBinary(timeArray[i]);
+                    intArray = value.split('').reverse();
+                    // Loop over the values of hours and minutes, and seconds
+                    for (let si = 0; si < 4; si++) {
+                        this.renderDots(i, si, intArray[si]);
+                    }
+                }
+            },
+
+            buildTimeArray: function () {
+                const now = new Date();
+                let h = BinaryClock.convertToArray(now.getHours()),
+                    m = BinaryClock.convertToArray(now.getMinutes()),
+                    s = BinaryClock.convertToArray(now.getSeconds());
+                return h.concat(m).concat(s);
+            },
+
+            convertToBinary: (x) => parseInt(x).toString(2),
+
+            convertToArray: (x) => BinaryClock.pad(x.toString()).split(''),
+
+            pad: (x) => (`0000${x}`).slice(-2),
+
+            renderDots: function (index, subindex, value) {
+                let el = document.querySelector(`[data-index="${index}"] [data-subindex="${subindex}"`);
+                if (value === '1') {
+                    el.classList.remove('off');
+                } else if (!!el) {
+                    el.classList.add('off');
+                }
+            },
+
+        };
+
+        if (document !== undefined) { BinaryClock.initialize(); }
+    </script>
+
+</body>
+
+</html>
