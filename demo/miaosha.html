@@ -12,21 +12,21 @@
     <p>
         商品链接
     </p>
-    <textarea id="t1" rows=3 style="width: 90%"></textarea>
+    <textarea id="t1" rows=3 style="width: 99%"></textarea>
     <div>
         <button id="b1"
-            style="width: 90%; height: 40px; margin-top: 10px; margin-bottom: 10px; background-color: white; color: black;">
+            style="width: 99%; height: 40px; margin-top: 10px; margin-bottom: 10px; background-color: white; color: black;">
             生成秒杀链接
         </button>
     </div>
 
     <div>
-        <textarea id="t2" rows=3 style="width: 90%"></textarea>
+        <textarea id="t2" rows=3 style="width: 99%"></textarea>
     </div>
 
     <div>
         <button id="b2"
-            style="width: 90%; height: 40px; margin-top: 5px; margin-bottom: 10px; background-color: white; color:blue;">
+            style="width: 99%; height: 40px; margin-top: 5px; margin-bottom: 10px; background-color: white; color:blue;">
             复制生成链接
         </button>
     </div>
@@ -62,19 +62,175 @@
             $("#t2").val(res);
         });
 
-        function copyToClipboard(element) {
-            var $temp = $("<input>");
-            $("body").append($temp);
-            $temp.val($(element).text()).select();
-            document.execCommand("copy");
-            $temp.remove();
-        }
+        window.Clipboard = (function (window, document, navigator) {
+            var textArea,
+                copy;
+
+            function isOS() {
+                return navigator.userAgent.match(/ipad|iphone/i);
+            }
+
+            function createTextArea(text) {
+                textArea = document.createElement('textArea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+            }
+
+            function selectText() {
+                var range,
+                    selection;
+
+                if (isOS()) {
+                    range = document.createRange();
+                    range.selectNodeContents(textArea);
+                    selection = window.getSelection();
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                    textArea.setSelectionRange(0, 999999);
+                } else {
+                    textArea.select();
+                }
+            }
+
+            function copyToClipboard() {
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+            }
+
+            copy = function (text) {
+                createTextArea(text);
+                selectText();
+                copyToClipboard();
+            };
+
+            return {
+                copy: copy
+            };
+        })(window, document, navigator);
 
         $("#b2").on("click", function () {
-            $(this).siblings('#t2').select();      
-            document.execCommand("copy");
-            $("#p1").show();
-        })
+                    Clipboard.copy($('#t2').val();
+                        // $(this).siblings('#t2').select();      
+                        document.execCommand("copy"); $("#p1").show();
+                    })
+    </script>
+</body>
+
+</html><!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+    <script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+    <title>秒杀链接生成器</title>
+</head>
+
+<body>
+    <p>
+        商品链接
+    </p>
+    <textarea id="t1" rows=3 style="width: 99%"></textarea>
+    <div>
+        <button id="b1"
+            style="width: 99%; height: 40px; margin-top: 10px; margin-bottom: 10px; background-color: white; color: black;">
+            生成秒杀链接
+        </button>
+    </div>
+
+    <div>
+        <textarea id="t2" rows=3 style="width: 99%"></textarea>
+    </div>
+
+    <div>
+        <button id="b2"
+            style="width: 99%; height: 40px; margin-top: 5px; margin-bottom: 10px; background-color: white; color:blue;">
+            复制生成链接
+        </button>
+    </div>
+    <p id="p1" hidden>链接复制成功</p>
+    <script>
+        var getUrlParameter = function getUrlParameter(url, sParam) {
+            var sPageURL = url.split('?')[1],
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                }
+            }
+        };
+
+        $("#b1").on("click", function () {
+            $("#p1").hide();
+            var origin_url = $("#t1").val();
+            var spu_id = getUrlParameter(origin_url, "id");
+            var sku_id = getUrlParameter(origin_url, "skuId");
+            if (sku_id === undefined) {
+                var res = "https://h5.m.taobao.com/cart/order.html?itemId=" + spu_id + "&item_num_id=" +
+                    spu_id + "&_input_charset=utf-8&buyNow=true&v=0&quantity=1"
+            } else {
+                var res = "https://h5.m.taobao.com/cart/order.html?itemId=" + spu_id + "&item_num_id=" +
+                    spu_id + "&_input_charset=utf-8&buyNow=true&v=0&skuId=" + sku_id + "&quantity=1"
+            }
+            $("#t2").val(res);
+        });
+
+        window.Clipboard = (function (window, document, navigator) {
+            var textArea,
+                copy;
+
+            function isOS() {
+                return navigator.userAgent.match(/ipad|iphone/i);
+            }
+
+            function createTextArea(text) {
+                textArea = document.createElement('textArea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+            }
+
+            function selectText() {
+                var range,
+                    selection;
+
+                if (isOS()) {
+                    range = document.createRange();
+                    range.selectNodeContents(textArea);
+                    selection = window.getSelection();
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                    textArea.setSelectionRange(0, 999999);
+                } else {
+                    textArea.select();
+                }
+            }
+
+            function copyToClipboard() {
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+            }
+
+            copy = function (text) {
+                createTextArea(text);
+                selectText();
+                copyToClipboard();
+            };
+
+            return {
+                copy: copy
+            };
+        })(window, document, navigator);
+
+        $("#b2").on("click", function () {
+                    Clipboard.copy($('#t2').val();
+                        // $(this).siblings('#t2').select();      
+                        document.execCommand("copy"); $("#p1").show();
+                    })
     </script>
 </body>
 
