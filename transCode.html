@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>显示换行符工具</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ant-design-vue@1.7.7/dist/antd.min.css">
+</head>
+
+<body>
+  <h1 style="text-align: center; margin-top: 20px;">显示换行符工具</h1>
+<div id="app" class="main">
+  <a-textarea class="ant-input" style="width: 50%; margin: 30px; padding: 20px;" v-model="beforeChar" :rows="50"></a-textarea>
+  <div style="word-break: break-all; width: 50%; margin: 30px; padding: 20px; border: 1px solid #aaa;">{{getAfterChar}}</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/ant-design-vue@1.7.7/dist/antd.min.js"></script>
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      beforeChar: "太阳当空照\n花儿对我笑\n",
+      afterChar: ''
+    },
+    computed: {
+      getAfterChar: function () {
+        return `${this.beforeChar.split('\n').slice(0,-1).join('\\n')}`
+      }
+    }
+  });
+</script>
+<style>
+  .main {
+    display: flex;
+    /* flex-direction: column; */
+  }
+</style>
+</body>
+</html>
