@@ -23,7 +23,7 @@
     },
     computed: {
       getAfterChar: function () {
-        return `${this.beforeChar.split('\n').slice().join('\\n')}`
+        return `${this.beforeChar.split('\n').slice(0,-1).join('\\n')}`
       }
     }
   });
